@@ -15,7 +15,7 @@ RUN mvn clean package
 FROM openjdk:11-jdk-slim-bullseye
 
 FROM httpd:2.4
-COPY --from=maven_build /app/target/hello-world-0.1.0.jar usr/local/tomcat/webapps
+COPY --from=maven_build /app/target/hello-world-0.1.0.jar usr/local/apache2/htdocs
 
 
 

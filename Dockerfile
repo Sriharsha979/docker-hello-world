@@ -14,13 +14,13 @@ RUN mvn clean package
 
 FROM openjdk:11-jdk-slim-bullseye
 
-FROM tomcat:7.0.82-jre8
-
+FROM httpd:2.4
 COPY --from=maven_build /app/target/hello-world-0.1.0.jar usr/local/tomcat/webapps
+
 
 
 #expose port 8080
 EXPOSE 8080
 
-CMD ["catalina.sh", "run"]
+
 
